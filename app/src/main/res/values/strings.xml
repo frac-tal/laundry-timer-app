@@ -1,6 +1,9 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Washing Machine Timer</string>
     <string name="start_button">Start</string>
+    <string name="done_notification_title">The laundry is done!</string>
+    <string name="done_notification_content">The <xliff:g id="plan_name"
+        example="eco 30">%s</xliff:g> program should have finished by now</string>
 
     <string-array name="plans">
         <item>155|Koch-/Buntwäsche 90°</item>

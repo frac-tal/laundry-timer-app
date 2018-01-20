@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
@@ -15,6 +16,8 @@ import java.util.GregorianCalendar;
 public class MainActivity extends AppCompatActivity {
 
     final static String TAG = "MainActivity";
+    public static final String EXTRA_PLAN_NAME = "planNameForNotification";
+    public static final String EXTRA_NOTIFICATION_ID = "notificationID";
 
     Button mButton;
     Long timeAtStart;
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     String[] planNames;
     int[] planTimes;
     int selectedPlanTime;
+    String selectedPlanName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 selectedPlanTime = planTimes[newVal];
+                selectedPlanName = planNames[newVal];
+                Log.v(TAG, String.format("picker changed to %d", newVal) );
+                Log.v(TAG, String.format("selected plan: %s", selectedPlanName));
+                Log.v(TAG, String.format("plan time in milliseconds: %d", selectedPlanTime));
             }
         });
 
@@ -53,12 +61,15 @@ public class MainActivity extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v(TAG, "received button press");
                 timeAtStart = new GregorianCalendar().getTimeInMillis();
                 Context mContext = getApplicationContext();
-                Intent intentAlarm = new Intent(mContext, AlarmReceiver.class);
+                Intent notificationIntent = new Intent(mContext, NotificationPublisher.class);
+                notificationIntent.putExtra(EXTRA_PLAN_NAME, selectedPlanName);
+                notificationIntent.putExtra(EXTRA_NOTIFICATION_ID, 1);
                 AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, (timeAtStart + selectedPlanTime), PendingIntent.getBroadcast
-                        (mContext, 1, intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
+                        (mContext, 1, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT));
             }
         });
     }
