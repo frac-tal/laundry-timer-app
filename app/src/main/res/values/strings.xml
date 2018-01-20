@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Washing Machine Timer</string>
+
+    <string-array name="plans">
+        <item>155|Koch-/Buntwäsche 90°</item>
+        <item>140|Vorwäsche 60°</item>
+        <item>190|Buntwäsche 60°</item>
+        <item>180|Butwäsche 40°</item>
+        <item>84|Öko-Programm 40°</item>
+        <item>30|Schnellwäsche 30°</item>
+        <item>102|Öko 20°C</item>
+        <item>84|Plfegeleicht 60°</item>
+        <item>65|Pflegeleicht 40°</item>
+        <item>72|Pflegeleicht Kalt*</item>
+        <item>70|Feinwäsche 30°</item>
+        <item>73|Wolle 30°</item>
+        <item>28|Spülen</item>
+        <item>10|Schleudern</item>
+        <item>2|Abpumpen</item>
+    </string-array>
 </resources>

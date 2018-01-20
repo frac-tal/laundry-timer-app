@@ -5,21 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context="com.example.android.washingmachinetimer.MainActivity">
 
-    <ImageView
-        android:id="@+id/knob_image"
-        android:layout_width="match_parent"
+
+
+    <NumberPicker
+        android:id="@+id/plan_picker"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/knob"
+        android:layout_centerInParent="true"
         />
+
 
     <Button
         android:id="@+id/only_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
         android:text="Do Something"
         />
 

@@ -26,6 +26,8 @@ public class AlarmReceiver extends BroadcastReceiver
                         .setContentText("Hello World!")
                         //.setSound()
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setVibrate(new long[] {100, 50, 100, 50, 100, 50, 100, 50, 100, 75, 100,
+                                75, 150, 80, 150, 90, 150, 100, 300, 110, 300, 120, 300, 130, 350, 150  })
                         .setDefaults(NotificationCompat.DEFAULT_SOUND);
         // Sets an ID for the notification
         int mNotificationId = 001;
