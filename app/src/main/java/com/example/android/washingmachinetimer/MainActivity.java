@@ -71,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
                 AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, (timeAtStart + selectedPlanTime), PendingIntent.getBroadcast
                         (mContext, 1, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+                Intent afterSetIntent = new Intent(MainActivity.this, ReminderSetActivity.class);
+                startActivity(afterSetIntent);
             }
         });
     }
