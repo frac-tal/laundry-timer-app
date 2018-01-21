@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_TIME_AT_START = "timeAtStart";
     public static final String EXTRA_SELECTED_PLAN_TIME = "selectedPlanTime";
     public static final String EXTRA_END_TIME = "endTime";
+    public static final String PICKER_STATE = "pickerState";
 
     Button mButton;
     Long timeAtStart;
@@ -84,5 +85,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(afterSetIntent);
             }
         });
+        if (savedInstanceState != null) {
+            int pickerState = savedInstanceState.getInt(PICKER_STATE);
+            planPicker.setValue(pickerState);
+            selectedPlanTime = planTimes[pickerState];
+            selectedPlanName = planNames[pickerState];
+
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //Save the fragment's instance
+        outState.putInt(PICKER_STATE, planPicker.getValue());
     }
 }
