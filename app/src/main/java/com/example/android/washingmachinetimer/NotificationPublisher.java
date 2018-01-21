@@ -30,12 +30,17 @@ public class NotificationPublisher extends BroadcastReceiver
         Log.v(TAG, "got to the NotificationPublisher!");
         notificationID = intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0);
         planName = intent.getStringExtra(EXTRA_PLAN_NAME);
+
+        NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
+        bigTextStyle.setBigContentTitle(context.getString(R.string.done_notification_title));
+        bigTextStyle.bigText(String.format(
+                context.getString(R.string.done_notification_content), planName));
+
+
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.laundry_icon)
-                        .setContentTitle(context.getString(R.string.done_notification_title))
-                        .setContentText(String.format(
-                                context.getString(R.string.done_notification_content), planName))
+                        .setStyle(bigTextStyle)
                         //.setSound()
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
                         .setVibrate(new long[] {100, 50, 100, 50, 100, 50, 100, 50, 100, 75, 100,
