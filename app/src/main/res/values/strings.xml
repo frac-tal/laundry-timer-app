@@ -1,6 +1,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Washing Machine Timer</string>
-    <string name="instractions">Pick your plan and press the start button when you start the machine</string>
+    <string name="instractions">Pick your program and press the start button when you start the machine</string>
     <string name="start_button">Start</string>
     <string name="done_notification_title">The laundry is done!</string>
     <string name="done_notification_content">The <xliff:g example="eco 30" id="plan_name">%s</xliff:g> program has finished</string>
@@ -10,8 +10,8 @@
     <string name="reset_button">Delete</string>
     <string name="reset_button_countdown_done">Done</string>
     <string name="countdown_done">Done</string>
-    <string name="times_table_button">See plan times</string>
-    <string name="plan_table_title">Plan Times</string>
+    <string name="times_table_button">See program times</string>
+    <string name="plan_table_title">Program Times</string>
     <string name="plan_time_entry"><xliff:g id="plan_length_in_mins" example="45">%s</xliff:g> min.</string>
 
     <string-array name="plans">
