@@ -90,6 +90,7 @@ public class ReminderSetActivity extends AppCompatActivity {
 
             public void onFinish() {
                 countDownTextView.setText(R.string.countdown_done);
+                resetButton.setText(R.string.reset_button_countdown_done);
             }
         }.start();
 

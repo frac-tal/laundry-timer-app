@@ -7,6 +7,7 @@
     <string name="start_time_title">Started at:</string>
     <string name="countdown_title">Time left:</string>
     <string name="reset_button">Delete</string>
+    <string name="reset_button_countdown_done">Done</string>
     <string name="countdown_done">Done</string>
 
     <string-array name="plans">
