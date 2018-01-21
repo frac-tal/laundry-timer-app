@@ -6,6 +6,7 @@
     <string name="done_notification_content">The <xliff:g example="eco 30" id="plan_name">%s</xliff:g> program has finished</string>
     <string name="start_time_title">Started at:</string>
     <string name="countdown_title">Time left:</string>
+    <string name="countdown_title_done">Finished at:</string>
     <string name="reset_button">Delete</string>
     <string name="reset_button_countdown_done">Done</string>
     <string name="countdown_done">Done</string>

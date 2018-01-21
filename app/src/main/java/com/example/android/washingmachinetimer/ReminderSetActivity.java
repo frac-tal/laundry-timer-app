@@ -28,6 +28,7 @@ public class ReminderSetActivity extends AppCompatActivity {
     TextView startTimeTextView;
     TextView countDownTextView;
     Button resetButton;
+    TextView countdownTitleTextView;
 
     String planName;
     // times in milliseconds:
@@ -55,6 +56,7 @@ public class ReminderSetActivity extends AppCompatActivity {
         startTimeTextView = findViewById(R.id.start_time_text_view);
         countDownTextView = findViewById(R.id.countdown_text_view);
         resetButton = findViewById(R.id.reset_button);
+        countdownTitleTextView = findViewById(R.id.countdown_title);
 
         // set values to UI
         planNameTextView.setText(planName);
@@ -89,8 +91,13 @@ public class ReminderSetActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                countDownTextView.setText(R.string.countdown_done);
                 resetButton.setText(R.string.reset_button_countdown_done);
+                countdownTitleTextView.setText(R.string.countdown_title_done);
+                Calendar endCalendar = Calendar.getInstance();
+                endCalendar.setTimeInMillis(endTime);
+                String finishTime = String.format("%02d:%02d:%02d", endCalendar.get(Calendar.HOUR_OF_DAY),
+                        endCalendar.get(Calendar.MINUTE), endCalendar.get(Calendar.SECOND));
+                countDownTextView.setText(finishTime);
             }
         }.start();
 
