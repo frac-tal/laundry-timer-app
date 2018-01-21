@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     final static String TAG = "MainActivity";
     public static final String EXTRA_PLAN_NAME = "planNameForNotification";
     public static final String EXTRA_NOTIFICATION_ID = "notificationID";
+    public static final String EXTRA_TIME_AT_START = "timeAtStart";
+    public static final String EXTRA_SELECTED_PLAN_TIME = "selectedPlanTime";
+    public static final String EXTRA_END_TIME = "endTime";
 
     Button mButton;
     Long timeAtStart;
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     int selectedPlanTime;
     String selectedPlanName;
     int notificationID;
+    Long endTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,15 +67,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.v(TAG, "received button press");
                 timeAtStart = new GregorianCalendar().getTimeInMillis();
+                endTime = timeAtStart + selectedPlanTime;
                 notificationID = (int) (timeAtStart % Integer.MAX_VALUE);
                 Context mContext = getApplicationContext();
                 Intent notificationIntent = new Intent(mContext, NotificationPublisher.class);
                 notificationIntent.putExtra(EXTRA_PLAN_NAME, selectedPlanName);
                 notificationIntent.putExtra(EXTRA_NOTIFICATION_ID, notificationID);
                 AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                alarmManager.set(AlarmManager.RTC_WAKEUP, (timeAtStart + selectedPlanTime), PendingIntent.getBroadcast
+                alarmManager.set(AlarmManager.RTC_WAKEUP, endTime, PendingIntent.getBroadcast
                         (mContext, 1, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT));
                 Intent afterSetIntent = new Intent(MainActivity.this, ReminderSetActivity.class);
+                afterSetIntent.putExtra(EXTRA_PLAN_NAME, selectedPlanName);
+                afterSetIntent.putExtra(EXTRA_TIME_AT_START, timeAtStart);
+                afterSetIntent.putExtra(EXTRA_SELECTED_PLAN_TIME, selectedPlanTime);
+                afterSetIntent.putExtra(EXTRA_END_TIME, endTime);
                 startActivity(afterSetIntent);
             }
         });
