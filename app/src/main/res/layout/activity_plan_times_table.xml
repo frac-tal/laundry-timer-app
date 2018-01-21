@@ -16,13 +16,20 @@
         android:gravity="center_horizontal"
         />
 
-    <LinearLayout
-        android:id="@+id/plans_list"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         >
 
-    </LinearLayout>
+        <TableLayout
+            android:id="@+id/plans_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/standard"
+            android:gravity="center_horizontal"
+            android:stretchColumns="1"
+            />
+
+    </ScrollView>
 
 </LinearLayout>
