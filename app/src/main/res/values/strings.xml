@@ -10,6 +10,9 @@
     <string name="reset_button">Delete</string>
     <string name="reset_button_countdown_done">Done</string>
     <string name="countdown_done">Done</string>
+    <string name="times_table_button">See plan times</string>
+    <string name="plan_table_title">Plan Times</string>
+    <string name="plan_time_entry"><xliff:g id="plan_length_in_mins" example="45">%s</xliff:g> min.</string>
 
     <string-array name="plans">
         <item>155|Koch-/Buntwäsche 90°</item>

@@ -101,7 +101,5 @@ public class ReminderSetActivity extends AppCompatActivity {
             }
         }.start();
 
-
-
     }
 }
