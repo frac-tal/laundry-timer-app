@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/standard"
+    android:orientation="vertical"
+    tools:context="com.example.android.washingmachinetimer.ReminderSetActivity">
+
+    <TextView
+        android:id="@+id/plan_name_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eco 30"
+        android:gravity="center_horizontal"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:padding="@dimen/standard"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/start_time_title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:paddingTop="@dimen/standard"
+                android:gravity="center_horizontal"
+                />
+
+            <TextView
+                android:id="@+id/start_time_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="14:32:00"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                android:gravity="center_horizontal"
+                android:layout_weight="5"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/countdown_title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:paddingTop="@dimen/standard"
+                android:gravity="center_horizontal"
+                />
+
+            <TextView
+                android:id="@+id/countdown_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="01:07:54"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                android:gravity="center_horizontal"
+                android:layout_weight="10"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/standard"
+        android:text="@string/reset_button"
+        />
+
+</LinearLayout>
