@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
     int[] planTimes;
     int selectedPlanTime;
     String selectedPlanName;
+    int notificationID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         planNames = getResources().getStringArray(R.array.plans);
         planTimes = new int[planNames.length];
         for (int i=0; i<planNames.length; i++) {
@@ -63,10 +63,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.v(TAG, "received button press");
                 timeAtStart = new GregorianCalendar().getTimeInMillis();
+                notificationID = (int) (timeAtStart % Integer.MAX_VALUE);
                 Context mContext = getApplicationContext();
                 Intent notificationIntent = new Intent(mContext, NotificationPublisher.class);
                 notificationIntent.putExtra(EXTRA_PLAN_NAME, selectedPlanName);
-                notificationIntent.putExtra(EXTRA_NOTIFICATION_ID, 1);
+                notificationIntent.putExtra(EXTRA_NOTIFICATION_ID, notificationID);
                 AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, (timeAtStart + selectedPlanTime), PendingIntent.getBroadcast
                         (mContext, 1, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT));
