@@ -1,9 +1,13 @@
 package com.example.android.washingmachinetimer;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -40,7 +44,7 @@ public class ReminderSetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reminder_set);
 
         // get values from intent
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         planName = intent.getStringExtra(EXTRA_PLAN_NAME);
         timeAtStart = intent.getLongExtra(EXTRA_TIME_AT_START, new GregorianCalendar().getTimeInMillis());
         planTime = intent.getLongExtra(EXTRA_SELECTED_PLAN_TIME, 0);
@@ -59,6 +63,20 @@ public class ReminderSetActivity extends AppCompatActivity {
         startTime = String.format("%02d:%02d:%02d", startCalendar.get(Calendar.HOUR_OF_DAY),
                 startCalendar.get(Calendar.MINUTE), startCalendar.get(Calendar.SECOND));
         startTimeTextView.setText(startTime);
+
+
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                Context mContext = getApplicationContext();
+                Intent notificationIntent = new Intent(mContext, NotificationPublisher.class);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                        mContext, 1, notificationIntent,     PendingIntent.FLAG_UPDATE_CURRENT);
+                alarmManager.cancel(pendingIntent);
+                finish();
+            }
+        });
 
         long nowMillis = new GregorianCalendar().getTimeInMillis();
         new CountDownTimer(endTime - nowMillis, 1000) {
