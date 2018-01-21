@@ -74,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent notificationIntent = new Intent(mContext, NotificationPublisher.class);
                 notificationIntent.putExtra(EXTRA_PLAN_NAME, selectedPlanName);
                 notificationIntent.putExtra(EXTRA_NOTIFICATION_ID, notificationID);
+                // for the activity opened from the notification:
+                notificationIntent.putExtra(EXTRA_TIME_AT_START, timeAtStart);
+                notificationIntent.putExtra(EXTRA_SELECTED_PLAN_TIME, selectedPlanTime);
+                notificationIntent.putExtra(EXTRA_END_TIME, endTime);
                 AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, endTime, PendingIntent.getBroadcast
                         (mContext, 1, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT));

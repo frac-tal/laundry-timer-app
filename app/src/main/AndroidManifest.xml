@@ -16,13 +16,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ReminderSetActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
 
         <receiver
             android:name=".NotificationPublisher"
             android:enabled="true"
             android:exported="false"></receiver>
 
-        <activity android:name=".ReminderSetActivity"></activity>
     </application>
 
 </manifest>
