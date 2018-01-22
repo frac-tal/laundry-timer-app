@@ -103,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
             planPicker.setValue(pickerState);
             selectedPlanTime = planTimes[pickerState];
             selectedPlanName = planNames[pickerState];
+        } else {
+            selectedPlanTime = planTimes[0];
+            selectedPlanName = planNames[0];
         }
     }
 
