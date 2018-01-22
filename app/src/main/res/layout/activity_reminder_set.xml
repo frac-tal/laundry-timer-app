@@ -17,6 +17,7 @@
         android:gravity="center_horizontal"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:padding="@dimen/standard"
+        android:textStyle="bold"
         />
 
     <TextView
@@ -25,6 +26,7 @@
         android:text="@string/start_time_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:paddingTop="@dimen/standard"
+        android:textColor="@color/titleTextColor"
         android:gravity="center_horizontal"
         />
 
@@ -34,6 +36,7 @@
         android:layout_height="wrap_content"
         android:text="14:32:00"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="@color/primaryTextColor"
         android:gravity="center_horizontal"
         android:layout_weight="5"
         />
@@ -47,6 +50,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:paddingTop="@dimen/standard"
         android:gravity="center_horizontal"
+        android:textColor="@color/titleTextColor"
         />
 
     <TextView
@@ -55,6 +59,7 @@
         android:layout_height="wrap_content"
         android:text="01:07:54"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="@color/primaryTextColor"
         android:gravity="center_horizontal"
         android:layout_weight="10"
         />

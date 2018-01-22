@@ -17,6 +17,7 @@
         android:gravity="center_horizontal"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:padding="@dimen/standard"
+        android:textStyle="bold"
         />
 
     <LinearLayout
@@ -37,6 +38,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:paddingTop="@dimen/standard"
                 android:gravity="center_horizontal"
+                android:textColor="@color/titleTextColor"
+
                 />
 
             <TextView
@@ -47,6 +50,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                 android:gravity="center_horizontal"
                 android:layout_weight="5"
+                android:textColor="@color/primaryTextColor"
                 />
 
         </LinearLayout>
@@ -66,6 +70,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:paddingTop="@dimen/standard"
                 android:gravity="center_horizontal"
+                android:textColor="@color/titleTextColor"
+
                 />
 
             <TextView
@@ -76,6 +82,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                 android:gravity="center_horizontal"
                 android:layout_weight="10"
+                android:textColor="@color/primaryTextColor"
                 />
 
         </LinearLayout>

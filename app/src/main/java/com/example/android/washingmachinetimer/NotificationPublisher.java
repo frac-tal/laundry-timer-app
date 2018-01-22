@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
@@ -65,6 +66,7 @@ public class NotificationPublisher extends BroadcastReceiver
                         .setSmallIcon(R.drawable.laundry_icon)
                         .setStyle(bigTextStyle)
                         .setContentIntent(donePlanPendingIntent)
+                        .setColor(ContextCompat.getColor(context, R.color.primaryTextColor))
                         //.setSound()
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
                         .setVibrate(new long[] {100, 50, 100, 50, 100, 50, 100, 50, 100, 75, 100,

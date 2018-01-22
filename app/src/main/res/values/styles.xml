@@ -20,10 +20,16 @@
         <!-- AppCompat Dialog Attributes -->
         <item name="dialogTheme">@style/AppTheme.Dialog.Green</item>
         <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert.Green</item>
+        <item name="android:textAppearanceButton">@style/TextAppearance.AppCompat.Button.Custom</item>
 
 
     </style>
 
+
+
+    <style name="TextAppearance.AppCompat.Button.Custom">
+        <item name="android:textColor">@color/secondaryTextColor</item>
+    </style>
 
 
     <!-- Green Dialog Theme -->
@@ -39,6 +45,7 @@
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/secondaryColor</item>
     </style>
+
 
 
 </resources>
