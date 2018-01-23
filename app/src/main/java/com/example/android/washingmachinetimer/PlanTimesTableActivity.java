@@ -2,6 +2,7 @@ package com.example.android.washingmachinetimer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
@@ -31,8 +32,8 @@ public class PlanTimesTableActivity extends AppCompatActivity {
 
             planNameTextView.setPadding(stdPadding, stdPadding, stdPadding, stdPadding);
             planTimeTextView.setPadding(stdPadding, stdPadding, stdPadding, stdPadding);
-            planNameTextView.setTextSize(fontSize);
-            planTimeTextView.setTextSize(fontSize);
+            planNameTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize);
+            planTimeTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize);
 
             row.addView(planNameTextView);
             row.addView(planTimeTextView);

@@ -69,8 +69,9 @@ public class NotificationPublisher extends BroadcastReceiver
                         .setColor(ContextCompat.getColor(context, R.color.primaryTextColor))
                         //.setSound()
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
-                        .setVibrate(new long[] {100, 50, 100, 50, 100, 50, 100, 50, 100, 75, 100,
-                                75, 150, 80, 150, 90, 150, 100, 300, 110, 300, 120, 300, 130, 350, 150  })
+                        .setAutoCancel(true)
+                        .setVibrate(new long[] {10, 50, 100, 60, 90, 50, 100, 60, 90, 50, 100, 60, 90, 50, 100, 60, 90, 50, 120, 50, 150, 50, 150, 50, 200,
+                        50, 300, 50, 500, 50, 500, 50})
                         .setDefaults(NotificationCompat.DEFAULT_SOUND);
         // Sets an ID for the notification
         // Gets an instance of the NotificationManager service
