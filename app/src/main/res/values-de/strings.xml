@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Wäsche Timer</string>
+    <string name="instractions">Wähl ein Programm und dann drück Start wenn die Machine startet</string>
+    <string name="start_button">Start</string>
+    <string name="done_notification_title">Die Wäsche ist fertig</string>
+    <string name="done_notification_content">Das <xliff:g example="eco 30" id="plan_name">%s</xliff:g> programm ist</string>
+    <string name="start_time_title">Anfangszeit:</string>
+    <string name="countdown_title">Verbleibende Zeit:</string>
+    <string name="countdown_title_done">Endzeit:</string>
+    <string name="reset_button">Löschen</string>
+    <string name="reset_button_countdown_done">Fertig</string>
+    <string name="countdown_done">Fertig</string>
+    <string name="times_table_button">Programmtabelle zeigen</string>
+    <string name="plan_table_title">Programmtabelle</string>
+    <string name="plan_time_entry"><xliff:g id="plan_length_in_mins" example="45">%s</xliff:g> min.</string>
+</resources>
