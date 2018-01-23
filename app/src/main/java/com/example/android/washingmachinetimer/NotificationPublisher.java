@@ -6,6 +6,7 @@ import android.app.TaskStackBuilder;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -38,13 +39,6 @@ public class NotificationPublisher extends BroadcastReceiver
         notificationID = intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0);
         planName = intent.getStringExtra(EXTRA_PLAN_NAME);
 
-        NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
-        bigTextStyle.setBigContentTitle(context.getString(R.string.done_notification_title));
-        bigTextStyle.bigText(String.format(
-                context.getString(R.string.done_notification_content), planName));
-
-
-
         Intent donePlanIntent = new Intent(context, ReminderSetActivity.class);
         donePlanIntent.putExtra(EXTRA_PLAN_NAME, planName);
         donePlanIntent.putExtra(EXTRA_TIME_AT_START, intent.getLongExtra(EXTRA_TIME_AT_START, 0));
@@ -60,19 +54,32 @@ public class NotificationPublisher extends BroadcastReceiver
         PendingIntent donePlanPendingIntent = stackBuilder
                 .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context);
+        mBuilder.setSmallIcon(R.drawable.laundry_icon);
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            // Do something for versions above lollipop
+            Log.d(TAG, "above lollipop!");
+            NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
+            bigTextStyle.setBigContentTitle(context.getString(R.string.done_notification_title));
+            bigTextStyle.bigText(String.format(
+                    context.getString(R.string.done_notification_content), planName));
+            mBuilder.setStyle(bigTextStyle);
+        } else{
+            mBuilder.setContentTitle(context.getString(R.string.done_notification_title));
+            mBuilder.setContentText(String.format(
+                    context.getString(R.string.done_notification_content), planName));
+        }
 
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(context)
-                        .setSmallIcon(R.drawable.laundry_icon)
-                        .setStyle(bigTextStyle)
-                        .setContentIntent(donePlanPendingIntent)
-                        .setColor(ContextCompat.getColor(context, R.color.primaryTextColor))
-                        //.setSound()
-                        .setPriority(NotificationCompat.PRIORITY_HIGH)
-                        .setAutoCancel(true)
-                        .setVibrate(new long[] {10, 50, 100, 60, 90, 50, 100, 60, 90, 50, 100, 60, 90, 50, 100, 60, 90, 50, 120, 50, 150, 50, 150, 50, 200,
-                        50, 300, 50, 500, 50, 500, 50})
-                        .setDefaults(NotificationCompat.DEFAULT_SOUND);
+
+        mBuilder.setContentIntent(donePlanPendingIntent);
+        mBuilder.setColor(ContextCompat.getColor(context, R.color.primaryTextColor));
+        //mBuilder.setSound();
+        mBuilder.setPriority(NotificationCompat.PRIORITY_HIGH);
+        mBuilder.setAutoCancel(true);
+        mBuilder.setVibrate(new long[] {10, 50, 100, 60, 90, 50, 100, 60, 90, 50, 100, 60,
+                                90, 50, 100, 60, 90, 50, 120, 50, 150, 50, 150, 50, 200, 50, 300,
+                                50, 500, 50, 500, 50});
+        mBuilder.setDefaults(NotificationCompat.DEFAULT_SOUND);
         // Sets an ID for the notification
         // Gets an instance of the NotificationManager service
         NotificationManager mNotifyMgr = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
