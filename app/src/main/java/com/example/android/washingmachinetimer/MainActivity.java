@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
     Long timeAtStart;
     NumberPicker planPicker;
     String[] planNames;
-    int[] planTimes;
-    int selectedPlanTime;
+    Long[] planTimes;
+    Long selectedPlanTime;
     String selectedPlanName;
     int notificationID;
     Long endTime;
@@ -49,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         planNames = getResources().getStringArray(R.array.plans);
-        planTimes = new int[planNames.length];
+        planTimes = new Long[planNames.length];
         for (int i=0; i<planNames.length; i++) {
             String[] sepperate = planNames[i].split("\\|", 2);
             //planTimes[i] = Integer.parseInt(sepperate[0]) * 1000 * 60;
-            planTimes[i] = Integer.parseInt(sepperate[0]) * 1000; // just for now, waiting seconds instead of minutes.
+            planTimes[i] = Long.parseLong(sepperate[0], 10) * 1000L; // just for now, waiting seconds instead of minutes.
             planNames[i] = sepperate[1];
         }
 
