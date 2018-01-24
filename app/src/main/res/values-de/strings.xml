@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Wäsche Timer</string>
-    <string name="instractions">Wähl ein Programm und dann drück Start wenn die Machine startet</string>
+    <string name="instractions">Wähle ein Programm aus und dann drücke auf Start wenn die Machine startet</string>
     <string name="start_button">Start</string>
     <string name="done_notification_title">Die Wäsche ist fertig</string>
-    <string name="done_notification_content">Das <xliff:g example="eco 30" id="plan_name">%s</xliff:g> programm ist</string>
+    <string name="done_notification_content">Das <xliff:g example="eco 30" id="plan_name">%s</xliff:g> Programm ist fertig</string>
     <string name="start_time_title">Anfangszeit:</string>
     <string name="countdown_title">Verbleibende Zeit:</string>
     <string name="countdown_title_done">Endzeit:</string>
