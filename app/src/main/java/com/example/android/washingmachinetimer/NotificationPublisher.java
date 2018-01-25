@@ -2,7 +2,6 @@ package com.example.android.washingmachinetimer;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -17,8 +16,7 @@ import static android.content.Context.NOTIFICATION_SERVICE;
  * Created by tal on 1/17/18.
  */
 
-public class NotificationPublisher extends BroadcastReceiver
-{
+public class NotificationPublisher extends BroadcastReceiver {
     public static final String TAG = "NotificationPublisher";
     public static final String EXTRA_PLAN_NAME = "planNameForNotification";
     public static final String EXTRA_NOTIFICATION_ID = "notificationID";
@@ -31,8 +29,7 @@ public class NotificationPublisher extends BroadcastReceiver
     String planName;
 
     @Override
-    public void onReceive(Context context, Intent intent)
-    {
+    public void onReceive(Context context, Intent intent) {
         // Your code to execute when the alarm triggers
         // and the broadcast is received.
         Log.v(TAG, "got to the NotificationPublisher!");
@@ -56,15 +53,15 @@ public class NotificationPublisher extends BroadcastReceiver
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context);
         mBuilder.setSmallIcon(R.drawable.laundry_icon);
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-            // Do something for versions above lollipop
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            // for versions above lollipop show bigTextStyle
             Log.d(TAG, "above lollipop!");
             NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
             bigTextStyle.setBigContentTitle(context.getString(R.string.done_notification_title));
             bigTextStyle.bigText(String.format(
                     context.getString(R.string.done_notification_content), planName));
             mBuilder.setStyle(bigTextStyle);
-        } else{
+        } else {
             mBuilder.setContentTitle(context.getString(R.string.done_notification_title));
             mBuilder.setContentText(String.format(
                     context.getString(R.string.done_notification_content), planName));
@@ -76,9 +73,9 @@ public class NotificationPublisher extends BroadcastReceiver
         //mBuilder.setSound();
         mBuilder.setPriority(NotificationCompat.PRIORITY_HIGH);
         mBuilder.setAutoCancel(true);
-        mBuilder.setVibrate(new long[] {10, 50, 100, 60, 90, 50, 100, 60, 90, 50, 100, 60,
-                                90, 50, 100, 60, 90, 50, 120, 50, 150, 50, 150, 50, 200, 50, 300,
-                                50, 500, 50, 500, 50});
+        mBuilder.setVibrate(new long[]{10, 50, 100, 60, 90, 50, 100, 60, 90, 50, 100, 60,
+                90, 50, 100, 60, 90, 50, 120, 50, 150, 50, 150, 50, 200, 50, 300,
+                50, 500, 50, 500, 50});
         mBuilder.setDefaults(NotificationCompat.DEFAULT_SOUND);
         // Sets an ID for the notification
         // Gets an instance of the NotificationManager service

@@ -6,8 +6,7 @@
         android:icon="@drawable/info_icon"
         android:title="@string/times_table_button"
         app:showAsAction="ifRoom|withText"
-        android:visible="true"
-        />
+        android:visible="true" />
 
 
 </menu>

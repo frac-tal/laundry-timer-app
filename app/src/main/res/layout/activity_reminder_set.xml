@@ -1,68 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/standard"
     android:orientation="vertical"
+    android:padding="@dimen/standard"
     tools:context="com.example.android.washingmachinetimer.ReminderSetActivity">
 
     <TextView
         android:id="@+id/plan_name_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Eco 30"
         android:gravity="center_horizontal"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:padding="@dimen/standard"
-        android:textStyle="bold"
-        />
+        android:text="Eco 30"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/standard"
         android:text="@string/start_time_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:paddingTop="@dimen/standard"
-        android:textColor="@color/titleTextColor"
-        android:gravity="center_horizontal"
-        />
+        android:textColor="@color/titleTextColor" />
 
     <TextView
         android:id="@+id/start_time_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:gravity="center_horizontal"
         android:text="14:32:00"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        android:textColor="@color/primaryTextColor"
-        android:gravity="center_horizontal"
-        android:layout_weight="5"
-        />
+        android:textColor="@color/primaryTextColor" />
 
 
     <TextView
         android:id="@+id/countdown_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/standard"
         android:text="@string/countdown_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:paddingTop="@dimen/standard"
-        android:gravity="center_horizontal"
-        android:textColor="@color/titleTextColor"
-        />
+        android:textColor="@color/titleTextColor" />
 
     <TextView
         android:id="@+id/countdown_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:gravity="center_horizontal"
         android:text="01:07:54"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        android:textColor="@color/primaryTextColor"
-        android:gravity="center_horizontal"
-        android:layout_weight="10"
-        />
+        android:textColor="@color/primaryTextColor" />
 
     <Button
         android:id="@+id/reset_button"
@@ -70,7 +64,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="@dimen/standard"
-        android:text="@string/reset_button"
-        />
+        android:text="@string/reset_button" />
 
 </LinearLayout>

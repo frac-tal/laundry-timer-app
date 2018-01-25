@@ -1,6 +1,5 @@
 package com.example.android.washingmachinetimer;
 
-import android.app.ActionBar;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         planNames = getResources().getStringArray(R.array.plans);
         planTimes = new Long[planNames.length];
-        for (int i=0; i<planNames.length; i++) {
+        for (int i = 0; i < planNames.length; i++) {
             String[] sepperate = planNames[i].split("\\|", 2);
             planTimes[i] = Long.parseLong(sepperate[0], 10) * 1000L * 60;
             //planTimes[i] = Long.parseLong(sepperate[0], 10) * 1000L; // just for now, waiting seconds instead of minutes.
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 selectedPlanTime = planTimes[newVal];
                 selectedPlanName = planNames[newVal];
-                Log.v(TAG, String.format("picker changed to %d", newVal) );
+                Log.v(TAG, String.format("picker changed to %d", newVal));
                 Log.v(TAG, String.format("selected plan: %s", selectedPlanName));
                 Log.v(TAG, String.format("plan time in milliseconds: %d", selectedPlanTime));
             }
@@ -139,9 +138,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.overflow, menu);
-        for(int i = 0; i < menu.size(); i++){
+        for (int i = 0; i < menu.size(); i++) {
             Drawable drawable = menu.getItem(i).getIcon();
-            if(drawable != null) {
+            if (drawable != null) {
                 drawable.mutate();
                 drawable.setColorFilter(getResources().getColor(R.color.primaryTextColor), PorterDuff.Mode.SRC_ATOP);
             }

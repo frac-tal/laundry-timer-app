@@ -11,24 +11,21 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/plan_table_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:gravity="center_horizontal"
-        />
+        android:text="@string/plan_table_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <TableLayout
             android:id="@+id/plans_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/standard"
             android:gravity="center_horizontal"
-            android:stretchColumns="1"
-            />
+            android:paddingTop="@dimen/standard"
+            android:stretchColumns="1" />
 
     </ScrollView>
 

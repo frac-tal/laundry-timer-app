@@ -74,7 +74,7 @@ public class ReminderSetActivity extends AppCompatActivity {
                 Context mContext = getApplicationContext();
                 Intent notificationIntent = new Intent(mContext, NotificationPublisher.class);
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                        mContext, 1, notificationIntent,     PendingIntent.FLAG_UPDATE_CURRENT);
+                        mContext, 1, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                 alarmManager.cancel(pendingIntent);
                 finish();
             }
