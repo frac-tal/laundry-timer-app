@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
         planTimes = new Long[planNames.length];
         for (int i=0; i<planNames.length; i++) {
             String[] sepperate = planNames[i].split("\\|", 2);
-            planTimes[i] = Long.parseLong(sepperate[0], 10) * 1000L * 60;
-            //planTimes[i] = Long.parseLong(sepperate[0], 10) * 1000L; // just for now, waiting seconds instead of minutes.
+            //planTimes[i] = Long.parseLong(sepperate[0], 10) * 1000L * 60;
+            planTimes[i] = Long.parseLong(sepperate[0], 10) * 1000L; // just for now, waiting seconds instead of minutes.
             planNames[i] = sepperate[1];
         }
 
